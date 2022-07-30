@@ -5,6 +5,7 @@ import { Button, Card, Segment,Header,Form,Icon } from 'semantic-ui-react'
 const base_url = process.env.REACT_APP_BASE_URL;
 
 export default function ConfirmOrder() {
+  console.log(base_url);
 
   const [modOpen,setmodOpen] = useState(false);
   const [number,setnumber] = useState('');
