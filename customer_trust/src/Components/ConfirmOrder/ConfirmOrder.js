@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import './Confirm.css'
 import { Button, Card, Segment,Header,Form,Icon } from 'semantic-ui-react'
 
+const base_url = process.env.REACT_APP_BASE_URL;
+
 export default function ConfirmOrder() {
 
   const [modOpen,setmodOpen] = useState(false);
@@ -20,7 +22,7 @@ export default function ConfirmOrder() {
   async function sendsms(){
     let message = `Your order has been confirmed and approching to you till tomorrow`;
     if(reshedule) message = `Your order has been rescheduled and approching to you till ${date}`;
-    const response = await fetch('http://localhost:5000/sendsms',{
+    const response = await fetch(base_url+'sendsms',{
         method:'POST',
         headers:{
           'Content-Type':'application/json'
